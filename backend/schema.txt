@@ -1,0 +1,110 @@
+
+user[icon:user,color:green]{
+  id string pk
+  username string unique
+  password number
+  created_at timestamp
+  updated_at timestamp
+
+}
+
+group[icon:k8s-group,color:blue]{
+  id string pk
+  name string
+  created_at timestamp
+}
+
+groupmembership[icon:azure-abs-member,color:pink]{
+  id string pk
+  userId string pk
+  groupId string pk
+}
+
+
+category{
+  name string 
+  created_at timestamp 
+
+}
+
+groupcategory{
+  id string pk
+  groupId string fk
+  category_id string fk
+
+}
+
+expenses[icon:money,color:green]{
+  id string pk
+  title string 
+  group_id string pk
+  created_at timestamp
+
+}
+
+expense_participant{
+  id string pk
+  user_id string pk
+  expense_id string fk
+
+
+
+}
+
+expense_payer{
+  id string pk
+  expense_id string fk
+  user_id string fk
+  
+}
+
+balance[icon:bank,color:yellow]{
+  id string pk
+  amount number 
+  created_at timestamp
+}
+
+settlement[icon:handshake,color:blue]{
+  id string pk
+  title string 
+  created_at timestamp
+  updated_at timestamp
+
+}
+
+
+activity[icon:activity,color:black]{
+  id string pk 
+  title string 
+  created_at timestamp
+  updated_at timestamp
+}
+
+user.id < groupmembership.userId
+group.id < groupmembership.groupId
+group.id < expenses.groupId
+user.id < expense_participant.user_id
+user.id < expense_payer.user_id
+group.id < groupcategory.group_id
+category.id < groupcategory.category_id
+expenses.id < expense_participant.expense_id
+expenses.id < expense_payer.expense_id
+
+
+
+One-to-many
+users.id<invite.inviterId*
+ 
+Many-to-one
+invite.inviterId>users.id
+ 
+
+One-to-one
+users.id-users.email
+ 
+Many-to-many
+teams.id<>users.teams
+
+
+
+Not completed yet
