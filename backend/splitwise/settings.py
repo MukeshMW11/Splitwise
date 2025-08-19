@@ -12,7 +12,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from decouple import config
 
+
+secret_key = config('secret_key')
+allowed_origin1 = config('allowed_origin1')
+allowed_origin2 = config('allowed_origin2')
+allowed_origin3 = config('allowed_origin3')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-t_-1)3nw3clc_a69%3kkp*7lxtoe8jm^c5bo_(c+4904m$riwe"
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,10 +86,10 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.93:3000",
-     
+allowed_origin1,
+allowed_origin2,
+allowed_origin3,
+
 ]
 CORS_ALLOW_CREDENTIALS =True
 TEMPLATES = [
