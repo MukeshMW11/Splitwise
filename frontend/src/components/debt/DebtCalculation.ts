@@ -28,3 +28,4 @@ export const calculateDebtStats = (
     settledDebts: settledDebtsArray.length, 
     settledDebtsArray, 
 };
+}
