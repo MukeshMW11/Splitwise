@@ -19,6 +19,9 @@ secret_key = config('secret_key')
 allowed_origin1 = config('allowed_origin1')
 allowed_origin2 = config('allowed_origin2')
 allowed_origin3 = config('allowed_origin3')
+allowed_origin4 = config('allowed_origin4')
+allowed_origin5 = config('allowed_origin5')
+allowed_origin6 = config('allowed_origin6')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -91,6 +94,9 @@ CORS_ALLOWED_ORIGINS = [
 allowed_origin1,
 allowed_origin2,
 allowed_origin3,
+allowed_origin4,
+allowed_origin5,
+allowed_origin6,
 
 ]
 CORS_ALLOW_CREDENTIALS =True
