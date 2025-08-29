@@ -12,7 +12,6 @@ const Login = () => {
   const onLoginSubmit = async (data: loginFormType) => {
     try {
       const res = await axiosInstance.post(`/user/login/`, data);
-      console.log(res);
       toast.success("Login successfull");
       router.push("/dashboard");
     } catch (err) {
